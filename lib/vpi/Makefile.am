@@ -66,16 +66,16 @@ endif
 covered.vpi: vpi.iv.o libcovered.a
 	$(CC) @shared@ vpi.iv.o -L. -lcovered -L$(IVDIR)/lib -lveriuser -lvpi -o covered.vpi
 
-vpi.vcs.o: ../../src/vpi.c
-	$(CC) @PICFLAG@ -g -DVCS -DNOIV $(DEBUGDEF) $(PROFILEDEF) -I$(VCSINC) -I.. -c -o vpi.vcs.o ../../src/vpi.c
+vpi.vcs.o: $(VPATH)/../../src/vpi.c
+	$(CC) @PICFLAG@ -g -DVCS -DNOIV $(DEBUGDEF) $(PROFILEDEF) -I$(VCSINC) -I.. $(DEFAULT_INCLUDES) -c -o vpi.vcs.o $(VPATH)/../../src/vpi.c
 
-vpi.ncv.o: ../../src/vpi.c
-	$(CC) @PICFLAG@ -g -DNCV -DNOIV $(DEBUGDEF) $(PROFILEDEF) -I$(NCVINC) -I.. -c -o vpi.ncv.o ../../src/vpi.c
+vpi.ncv.o: $(VPATH)/../../src/vpi.c
+	$(CC) @PICFLAG@ -g -DNCV -DNOIV $(DEBUGDEF) $(PROFILEDEF) -I$(NCVINC) -I.. $(DEFAULT_INCLUDES) -c -o vpi.ncv.o $(VPATH)/../../src/vpi.c
 
-vpi.cver.o: ../../src/vpi.c
-	$(CC) @PICFLAG@ -g -DCVER -DNOIV $(DEBUGDEF) $(PROFILEDEF) -I$(CVERINC) -I.. -c -o vpi.cver.o ../../src/vpi.c
+vpi.cver.o: $(VPATH)/../../src/vpi.c
+	$(CC) @PICFLAG@ -g -DCVER -DNOIV $(DEBUGDEF) $(PROFILEDEF) -I$(CVERINC) -I.. $(DEFAULT_INCLUDES) -c -o vpi.cver.o $(VPATH)/../../src/vpi.c
 
-vpi.iv.o: ../../src/vpi.c
-	$(CC) @PICFLAG@ -g $(DEBUGDEF) $(PROFILEDEF) -I$(IVINC) -I.. -c -o vpi.iv.o ../../src/vpi.c
+vpi.iv.o: $(VPATH)/../../src/vpi.c
+	$(CC) @PICFLAG@ -g $(DEBUGDEF) $(PROFILEDEF) -I$(IVINC) -I.. $(DEFAULT_INCLUDES) -c -o vpi.iv.o $(VPATH)/../../src/vpi.c
 
 CLEANFILES = vpi.o vpi.vcs.o vpi.cver.o covered.vcs.so covered.cver.so covered.vpi
