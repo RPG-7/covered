@@ -4,7 +4,8 @@
 *.a
 *.vpi
 src/covered
-
+build/
+*~
 #configure generated files
 /Makefile
 /src/Makefile

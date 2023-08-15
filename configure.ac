@@ -1,7 +1,9 @@
 dnl Process this file with autoconf to produce a configure script.
-AC_INIT(src/main.c)
+AC_INIT(covered,covered-20090802,src/main.c)
 AM_CONFIG_HEADER(config.h)
-AM_INIT_AUTOMAKE(covered,covered-20090802)
+#AM_INIT_AUTOMAKE(covered,covered-20090802)
+AC_CONFIG_SRCDIR([src])
+AM_INIT_AUTOMAKE([-Wall subdir-objects])
 
 dnl Get host information
 AC_CANONICAL_HOST
